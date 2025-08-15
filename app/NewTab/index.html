@@ -33,6 +33,39 @@
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #2D3748;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #A0AEC0;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-gray-900">
@@ -46,8 +79,8 @@
             <h1 class="text-3xl font-bold text-transparent bg-clip-text header-gradient" data-i18n-key="header_title">Lifer_Lighdow</h1>
         </div>
         <div class="flex items-center">
-            <label for="language-selector" class="text-gray-300 mr-2 text-sm" data-i18n-key="language_selector_label">語言：</label>
-            <select id="language-selector" class="p-2 rounded-md bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500 text-white text-sm">
+            <label for="page-language-selector" class="text-gray-300 mr-2 text-sm" data-i18n-key="language_selector_label">語言：</label>
+            <select id="page-language-selector" class="p-2 rounded-md bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500 text-white text-sm">
                 <option value="zh-TW">繁體中文</option>
                 <option value="zh-CN">简体中文</option>
                 <option value="en">English</option>
@@ -55,6 +88,28 @@
             </select>
         </div>
     </header>
+
+    <!-- Language Selection Modal Container -->
+    <div id="language-selection-modal-container" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="text-2xl font-bold text-white mb-4" data-i18n-key="modal_title">選擇語言</h2>
+            <p class="text-gray-300 mb-6" data-i18n-key="modal_instruction">請選擇您希望擴充功能介面使用的語言：</p>
+            <select id="modal-language-selector" class="w-full p-3 rounded-md bg-gray-700 border border-gray-600 focus:outline-none focus:border-purple-500 text-white text-base mb-8">
+                <option value="zh-TW">繁體中文</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+            </select>
+            <div class="flex justify-center gap-4">
+                <button id="modal-confirm-btn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-md shadow transition duration-200 install-button text-lg" data-i18n-key="modal_confirm_button">
+                    確認並下載
+                </button>
+                <button id="modal-cancel-btn" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-md shadow transition duration-200 text-lg" data-i18n-key="modal_cancel_button">
+                    取消
+                </button>
+            </div>
+        </div>
+    </div>
 
     <div class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-8">
 
@@ -66,14 +121,14 @@
             <p class="text-xl sm:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto" data-i18n-key="hero_subtitle">
                 將您的 Chrome 新分頁轉變為個性化的生產力中心！
             </p>
-            <a href="NewTab——Lifer_Lighdow.crx" download class="inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-lg install-button text-lg" data-i18n-key="install_button_text">
+            <a href="javascript:void(0);" id="install-button" class="inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-lg install-button text-lg" data-i18n-key="install_button_text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download mr-3">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
                 </svg>
                 立即安裝擴充功能
             </a>
             <p class="text-sm text-gray-400 mt-4 max-w-lg mx-auto">
-                <strong class="text-yellow-400" data-i18n-key="install_note_important">注意：</strong> <span data-i18n-key="install_note_text">Chrome 瀏覽器通常不允許直接安裝此類 .crx 檔案。您可能需要前往 chrome://extensions/ 並開啟「開發人員模式」，然後將下載的檔案拖曳到頁面中來安裝。</span>
+                <strong class="text-yellow-400" data-i18n-key="install_note_important">注意：</strong> <span data-i18n-key="install_note_text">Chrome 瀏覽器通常不允許直接安裝此類 .crx 檔案。您可能需要前往 <code class="bg-gray-700 px-1 rounded">chrome://extensions/</code> 並開啟「開發人員模式」，然後將下載的檔案拖曳到頁面中來安裝。</span>
             </p>
         </section>
 
@@ -149,13 +204,13 @@
         <!-- Call to Action Section (Repeat) -->
         <section class="text-center mb-16 max-w-4xl w-full">
             <h2 class="text-4xl sm:text-5xl font-bold mb-6 text-purple-300" data-i18n-key="final_cta_title">立即開始您的個性化新分頁體驗！</h2>
-            <a href="NewTab——Lifer_Lighdow.crx" download class="inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-lg install-button text-lg" data-i18n-key="download_ext_name_button">
+            <a href="javascript:void(0);" id="install-button-bottom" class="inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-full shadow-lg install-button text-lg" data-i18n-key="download_ext_name_button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download mr-3">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
                 </svg>
                 下載擴充功能檔案
             </a>
-            <p class="text-sm text-gray-400 mt-4 max-w-lg mx-auto" data-i18n-key="support_text_combined">
+            <p class="text-sm text-gray-400 mt-4 max-w-lg mx-auto">
                 <strong class="text-yellow-400" data-i18n-key="install_note_important">注意：</strong> <span data-i18n-key="install_note_text">Chrome 瀏覽器通常不允許直接安裝此類 .crx 檔案。您可能需要前往 <code class="bg-gray-700 px-1 rounded">chrome://extensions/</code> 並開啟「開發人員模式」，然後將下載的檔案拖曳到頁面中來安裝。</span>
             </p>
         </section>
@@ -196,7 +251,10 @@
                 'final_cta_title': '立即開始您的個性化新分頁體驗！',
                 'download_ext_name_button': '下載擴充功能檔案',
                 'footer_text': '&copy; 2025 NewTab by Lifer_Lighdow. All rights reserved.',
-                'support_text_combined': '<strong class="text-yellow-400" data-i18n-key="install_note_important">注意：</strong> <span data-i18n-key="install_note_text">Chrome 瀏覽器通常不允許直接安裝此類 .crx 檔案。您可能需要前往 <code class="bg-gray-700 px-1 rounded">chrome://extensions/</code> 並開啟「開發人員模式」，然後將下載的檔案拖曳到頁面中來安裝。</span>',
+                'modal_title': '選擇語言',
+                'modal_instruction': '請選擇您希望擴充功能介面使用的語言：',
+                'modal_confirm_button': '確認並下載',
+                'modal_cancel_button': '取消',
             },
             'zh-CN': {
                 'page_title': 'NewTab——Lifer_Lighdow - 您的专属新标签页体验',
@@ -225,7 +283,10 @@
                 'final_cta_title': '立即开始您的个性化新标签页体验！',
                 'download_ext_name_button': '下载扩展程序文件',
                 'footer_text': '&copy; 2025 NewTab by Lifer_Lighdow. All rights reserved.',
-                'support_text_combined': '<strong class="text-yellow-400" data-i18n-key="install_note_important">注意：</strong> <span data-i18n-key="install_note_text">Chrome 浏览器通常不允许直接安装此类 .crx 文件。您可能需要前往 <code class="bg-gray-700 px-1 rounded">chrome://extensions/</code> 并开启“开发者模式”，然后将下载的文件拖拽到页面中来安装。</span>',
+                'modal_title': '选择语言',
+                'modal_instruction': '请选择您希望扩展程序界面使用的语言：',
+                'modal_confirm_button': '确认并下载',
+                'modal_cancel_button': '取消',
             },
             'en': {
                 'page_title': 'NewTab——Lifer_Lighdow - Your Custom New Tab Experience',
@@ -254,7 +315,10 @@
                 'final_cta_title': 'Start your personalized new tab experience now!',
                 'download_ext_name_button': 'Download Extension File',
                 'footer_text': '&copy; 2025 NewTab by Lifer_Lighdow. All rights reserved.',
-                'support_text_combined': '<strong class="text-yellow-400" data-i18n-key="install_note_important">Note:</strong> <span data-i18n-key="install_note_text">Chrome browser typically does not allow direct installation of .crx files. You may need to go to <code class="bg-gray-700 px-1 rounded">chrome://extensions/</code> and enable "Developer mode", then drag and drop the downloaded file onto the page to install.</span>',
+                'modal_title': 'Select Language',
+                'modal_instruction': 'Please select the language you want for the extension interface:',
+                'modal_confirm_button': 'Confirm & Download',
+                'modal_cancel_button': 'Cancel',
             },
             'ja': {
                 'page_title': 'NewTab——Lifer_Lighdow - あなた専用の新しいタブ体験',
@@ -283,7 +347,10 @@
                 'final_cta_title': '今すぐパーソナライズされた新しいタブ体験を始めましょう！',
                 'download_ext_name_button': '拡張機能ファイルをダウンロード',
                 'footer_text': '&copy; 2025 NewTab by Lifer_Lighdow. All rights reserved.',
-                'support_text_combined': '<strong class="text-yellow-400" data-i18n-key="install_note_important">注意：</strong> <span data-i18n-key="install_note_text">Chromeブラウザでは通常、.crxファイルの直接インストールは許可されていません。chrome://extensions/に移動して<code class="bg-gray-700 px-1 rounded">「デベロッパーモード」</code>を有効にし、ダウンロードしたファイルをページにドラッグ＆ドロップしてインストールする必要がある場合があります。</span>',
+                'modal_title': '言語を選択',
+                'modal_instruction': '拡張機能のインターフェースで使用したい言語を選択してください：',
+                'modal_confirm_button': '確認してダウンロード',
+                'modal_cancel_button': 'キャンセル',
             }
         };
 
@@ -298,8 +365,8 @@
                     // Special handling for placeholder
                     if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
                         element.setAttribute('placeholder', translations[lang][key]);
-                    } else if (key === 'support_text_combined') {
-                        // For this specific key, update innerHTML as it contains <strong> and <code> tags
+                    } else if (key === 'install_note_text' || key === 'support_text_combined') {
+                        // For these specific keys, update innerHTML as they contain <strong> and <code> tags
                         element.innerHTML = translations[lang][key];
                     }
                     else {
@@ -315,21 +382,76 @@
             localStorage.setItem('selectedLanguage', lang);
         }
 
-        // Initialize language on page load
+        function showLanguageSelectionModal() {
+            const modalContainer = document.getElementById('language-selection-modal-container');
+            const modalLangSelector = document.getElementById('modal-language-selector');
+            const currentLang = localStorage.getItem('selectedLanguage') || 'zh-TW';
+
+            // Set the modal's dropdown to the currently selected page language
+            if (modalLangSelector) {
+                modalLangSelector.value = currentLang;
+            }
+
+            // Apply translations to the modal content itself
+            modalContainer.querySelector('[data-i18n-key="modal_title"]').textContent = translations[currentLang]['modal_title'];
+            modalContainer.querySelector('[data-i18n-key="modal_instruction"]').textContent = translations[currentLang]['modal_instruction'];
+            modalContainer.querySelector('[data-i18n-key="modal_confirm_button"]').textContent = translations[currentLang]['modal_confirm_button'];
+            modalContainer.querySelector('[data-i18n-key="modal_cancel_button"]').textContent = translations[currentLang]['modal_cancel_button'];
+
+
+            modalContainer.classList.remove('hidden');
+
+            // Bind event listeners for modal buttons
+            document.getElementById('modal-confirm-btn').onclick = () => {
+                const selectedLang = modalLangSelector.value;
+                setLanguage(selectedLang); // Set the page language based on modal selection
+                triggerDownload('NewTab——Lifer_Lighdow.crx');
+                hideLanguageSelectionModal();
+            };
+
+            document.getElementById('modal-cancel-btn').onclick = () => {
+                hideLanguageSelectionModal();
+            };
+        }
+
+        function hideLanguageSelectionModal() {
+            document.getElementById('language-selection-modal-container').classList.add('hidden');
+        }
+
+        function triggerDownload(url) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = url.substring(url.lastIndexOf('/') + 1); // Get filename from URL
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Initialize language and bind events on page load
         document.addEventListener('DOMContentLoaded', () => {
-            const languageSelector = document.getElementById('language-selector');
+            const pageLanguageSelector = document.getElementById('page-language-selector');
             const savedLang = localStorage.getItem('selectedLanguage') || 'zh-TW'; // Default to Traditional Chinese
 
-            // Set the dropdown to the saved language
-            if (languageSelector) {
-                languageSelector.value = savedLang;
-                languageSelector.addEventListener('change', (event) => {
+            // Set the page's language dropdown to the saved language
+            if (pageLanguageSelector) {
+                pageLanguageSelector.value = savedLang;
+                pageLanguageSelector.addEventListener('change', (event) => {
                     setLanguage(event.target.value);
                 });
             }
 
-            // Apply translations
+            // Apply translations to the entire page
             setLanguage(savedLang);
+
+            // Bind click event to the install buttons
+            document.getElementById('install-button').addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default download immediately
+                showLanguageSelectionModal();
+            });
+            document.getElementById('install-button-bottom').addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default download immediately
+                showLanguageSelectionModal();
+            });
         });
     </script>
 </body>
