@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Lifer_Lighdow 擴充功能商店</title>
+    <!-- 載入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1A202C; /* 深灰藍背景 */
+            color: #E2E8F0; /* 淺灰色文字 */
+            overflow-x: hidden;
+        }
+        .header-gradient {
+            background: linear-gradient(90deg, #4299E1, #805AD5); /* 藍色到紫色漸層 */
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        .install-button {
+            transition: all 0.3s ease;
+        }
+        .install-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(100, 20, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Header -->
+    <header class="bg-gray-800 shadow-md py-4 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between sticky top-0 z-50 border-b-2 border-purple-600">
+        <div class="flex items-center mb-4 md:mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chrome text-blue-400 mr-3">
+                <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="22.2" x2="16.4" y1="9" y2="9"/><line x1="22.2" x2="16.4" y1="15" y2="15"/><line x1="9" x2="9" y1="1.8" y2="7.6"/><line x1="15" x2="15" y1="1.8" y2="7.6"/>
+            </svg>
+            <h1 class="text-3xl font-bold text-transparent bg-clip-text header-gradient" data-i18n-key="store_title">Lifer_Lighdow 擴充功能商店</h1>
+        </div>
+        <div class="w-full md:w-1/2 flex items-center md:justify-end">
+            <div class="flex items-center mr-4">
+                <label for="language-selector" class="text-gray-300 mr-2 text-sm" data-i18n-key="language_selector_label">語言：</label>
+                <select id="language-selector" class="p-2 rounded-md bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500 text-white text-sm">
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="zh-CN">简体中文</option>
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                </select>
+            </div>
+            <input type="text" placeholder="搜尋擴充功能..." class="flex-grow p-3 rounded-l-lg bg-gray-700 border border-gray-600 focus:outline-none focus:border-blue-500 text-white placeholder-gray-400 text-base" data-i18n-key="search_placeholder">
+            <button class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-r-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-16">
+
+        <!-- Featured Extension: NewTab——Lifer_Lighdow -->
+        <section class="bg-gray-800 rounded-xl shadow-xl p-6 md:p-10 mb-16 border border-blue-700 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-10">
+            <div class="flex-shrink-0">
+                <img src="https://placehold.co/120x120/805AD5/ffffff?text=NewTab" alt="NewTab Logo" class="rounded-lg shadow-lg">
+            </div>
+            <div class="flex-grow text-center md:text-left">
+                <h2 class="text-4xl font-bold mb-3 text-transparent bg-clip-text header-gradient" data-i18n-key="featured_ext_title">推薦：NewTab——Lifer_Lighdow</h2>
+                <p class="text-gray-300 text-lg mb-4" data-i18n-key="featured_ext_description">
+                    將您的 Chrome 新分頁轉變為一個高度個性化、功能豐富的生產力儀表板。具備時間、天氣、快速連結、筆記、待辦事項和 AI 聊天功能！
+                </p>
+                <div class="flex items-center justify-center md:justify-start text-yellow-400 mb-4 text-xl">
+                    <span class="mr-2" data-i18n-key="rating">★★★★★</span> (5.0)
+                </div>
+                <a href="NewTab——Lifer_Lighdow.crx" download class="inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg install-button text-lg" data-i18n-key="add_to_chrome">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-circle mr-2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+                    新增至 Chrome
+                </a>
+                <p class="text-sm text-gray-400 mt-3 max-w-lg mx-auto md:mx-0">
+                    <strong class="text-yellow-400" data-i18n-key="install_note_important">重要：</strong> <span data-i18n-key="install_note_text">Chrome 瀏覽器通常不允許直接安裝此類 .crx 檔案。您可能需要前往 <code class="bg-gray-700 px-1 rounded">chrome://extensions/</code> 並開啟「開發人員模式」，然後將下載的檔案拖曳到頁面中來安裝。</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-blue-300" data-i18n-key="categories_title">熱門類別</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <a href="#" class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center card-hover border border-gray-700 hover:border-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket text-purple-400 mb-3">
+                        <path d="M19.5 5.5.5 19.5c-1 1-1 2.5 0 3.5s2.5 1 3.5 0L18.5 4.5c1-1 2.5-1 3.5 0s1 2.5 0 3.5Z"/><path d="m7.5 10.5 4.5 4.5"/><path d="m11.5 6.5 5 5"/>
+                    </svg>
+                    <span class="text-xl font-semibold text-white" data-i18n-key="cat_productivity">生產力工具</span>
+                </a>
+                <a href="#" class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center card-hover border border-gray-700 hover:border-green-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paint-roller text-green-400 mb-3">
+                        <path d="M20 7v.01"/><path d="M20 12v.01"/><path d="M20 17v.01"/><path d="M6 7v.01"/><path d="M6 12v.01"/><path d="M6 17v.01"/><rect x="10" y="5" width="4" height="14" rx="2"/>
+                    </svg>
+                    <span class="text-xl font-semibold text-white" data-i18n-key="cat_themes">主題與外觀</span>
+                </a>
+                <a href="#" class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center card-hover border border-gray-700 hover:border-yellow-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap text-yellow-400 mb-3">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 1 6 1 9 0v-5"/><path d="M4 15.5V17c.03.07.07.13.12.19.14.16.32.3.52.42.2.12.42.2.66.24H20c.24-.04.46-.12.66-.24.2-.12.38-.26.52-.42.05-.06.09-.12.12-.19v-1.5" />
+                    </svg>
+                    <span class="text-xl font-semibold text-white" data-i18n-key="cat_education">學習與教育</span>
+                </a>
+                <a href="#" class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center card-hover border border-gray-700 hover:border-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gamepad text-red-400 mb-3">
+                        <path d="M6 12H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"/><path d="M18 12h2a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2"/><path d="M12 18V20a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2"/><path d="M12 6V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2"/><path d="M12 10a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-4Z"/>
+                    </svg>
+                    <span class="text-xl font-semibold text-white" data-i18n-key="cat_games">遊戲</span>
+                </a>
+                <a href="#" class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center card-hover border border-gray-700 hover:border-indigo-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-text text-indigo-400 mb-3">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M13 8H7"/><path d="M17 12H7"/>
+                    </svg>
+                    <span class="text-xl font-semibold text-white" data-i18n-key="cat_communication">通訊</span>
+                </a>
+                <a href="#" class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center card-hover border border-gray-700 hover:border-pink-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check text-pink-400 mb-3">
+                        <path d="M20 13c0 5-2 9-8 9s-8-4-8-9V5l8-3 8 3z"/><path d="m9 12 2 2 4-4"/>
+                    </svg>
+                    <span class="text-xl font-semibold text-white" data-i18n-key="cat_security">安全與隱私</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- More Extensions Section (Placeholder) -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-green-300" data-i18n-key="explore_more_title">探索更多擴充功能</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Placeholder Extension Card 1 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card-hover border border-gray-700 hover:border-gray-500">
+                    <img src="https://placehold.co/80x80/6EE7B7/1F2937?text=Ext1" alt="Extension 1 Logo" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-white" data-i18n-key="ext_1_title">範例擴充功能 1</h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2" data-i18n-key="ext_1_desc">這個擴充功能可以幫助您優化瀏覽體驗，提供各種實用小工具。</p>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <span data-i18n-key="rating">★★★★☆</span> (4.5)
+                    </div>
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full text-sm transition-colors duration-200" data-i18n-key="view_details">查看詳情</button>
+                </div>
+
+                <!-- Placeholder Extension Card 2 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card-hover border border-gray-700 hover:border-gray-500">
+                    <img src="https://placehold.co/80x80/FBBF24/1F2937?text=Ext2" alt="Extension 2 Logo" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-white" data-i18n-key="ext_2_title">高效工作夥伴</h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2" data-i18n-key="ext_2_desc">專為高效人士設計，整合多項工作管理功能，提升您的生產力。</p>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <span data-i18n-key="rating">★★★★☆</span> (4.7)
+                    </div>
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full text-sm transition-colors duration-200" data-i18n-key="view_details">查看詳情</button>
+                </div>
+
+                <!-- Placeholder Extension Card 3 -->
+                <div class="bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card-hover border border-gray-700 hover:border-gray-500">
+                    <img src="https://placehold.co/80x80/A78BFA/1F2937?text=Ext3" alt="Extension 3 Logo" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-white" data-i18n-key="ext_3_title">影音增強器</h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2" data-i18n-key="ext_3_desc">提供豐富的影音播放控制，讓您享受更流暢的線上觀看體驗。</p>
+                    <div class="flex items-center text-yellow-400 mb-3">
+                        <span data-i18n-key="rating">★★★★☆</span> (4.2)
+                    </div>
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full text-sm transition-colors duration-200" data-i18n-key="view_details">查看詳情</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <section class="text-center max-w-4xl w-full py-10 bg-gray-800 rounded-xl shadow-xl border border-purple-700">
+            <h2 class="text-3xl font-bold mb-6 text-purple-300" data-i18n-key="final_cta_title">準備好改變您的新分頁體驗了嗎？</h2>
+            <a href="NewTab——Lifer_Lighdow.crx" download class="inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg install-button text-lg" data-i18n-key="download_ext_name">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download mr-3">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
+                </svg>
+                下載 NewTab——Lifer_Lighdow
+            </a>
+            <p class="text-sm text-gray-400 mt-4 max-w-lg mx-auto" data-i18n-key="support_text_combined">
+                <span data-i18n-key="support_text">如果您在安裝過程中遇到任何問題，請參閱我們的</span> <a href="#" class="text-blue-400 hover:underline" data-i18n-key="install_guide">安裝指南</a> <span data-i18n-key="or_contact_support">或聯繫支援。</span>
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-8 text-gray-500 border-t border-gray-700 mt-16">
+        <p data-i18n-key="footer_text">&copy; 2025 Lifer_Lighdow 擴充功能商店. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            'zh-TW': {
+                'page_title': 'Lifer_Lighdow 擴充功能商店',
+                'store_title': 'Lifer_Lighdow 擴充功能商店',
+                'search_placeholder': '搜尋擴充功能...',
+                'featured_ext_title': '推薦：NewTab——Lifer_Lighdow',
+                'featured_ext_description': '將您的 Chrome 新分頁轉變為一個高度個性化、功能豐富的生產力儀表板。具備時間、天氣、快速連結、筆記、待辦事項和 AI 聊天功能！',
+                'rating': '★★★★★',
+                'add_to_chrome': '新增至 Chrome',
+                'install_note_important': '重要：',
+                'install_note_text': 'Chrome 瀏覽器通常不允許直接安裝此類 .crx 檔案。您可能需要前往 chrome://extensions/ 並開啟「開發人員模式」，然後將下載的檔案拖曳到頁面中來安裝。',
+                'categories_title': '熱門類別',
+                'cat_productivity': '生產力工具',
+                'cat_themes': '主題與外觀',
+                'cat_education': '學習與教育',
+                'cat_games': '遊戲',
+                'cat_communication': '通訊',
+                'cat_security': '安全與隱私',
+                'explore_more_title': '探索更多擴充功能',
+                'ext_1_title': '範例擴充功能 1',
+                'ext_1_desc': '這個擴充功能可以幫助您優化瀏覽體驗，提供各種實用小工具。',
+                'ext_2_title': '高效工作夥伴',
+                'ext_2_desc': '專為高效人士設計，整合多項工作管理功能，提升您的生產力。',
+                'ext_3_title': '影音增強器',
+                'ext_3_desc': '提供豐富的影音播放控制，讓您享受更流暢的線上觀看體驗。',
+                'view_details': '查看詳情',
+                'final_cta_title': '準備好改變您的新分頁體驗了嗎？',
+                'download_ext_name': '下載 NewTab——Lifer_Lighdow',
+                'support_text': '如果您在安裝過程中遇到任何問題，請參閱我們的',
+                'install_guide': '安裝指南',
+                'or_contact_support': '或聯繫支援。',
+                'footer_text': '&copy; 2025 Lifer_Lighdow 擴充功能商店. All rights reserved.',
+                'language_selector_label': '語言：',
+            },
+            'zh-CN': {
+                'page_title': 'Lifer_Lighdow 扩展程序商店',
+                'store_title': 'Lifer_Lighdow 扩展程序商店',
+                'search_placeholder': '搜索扩展程序...',
+                'featured_ext_title': '推荐：NewTab——Lifer_Lighdow',
+                'featured_ext_description': '将您的 Chrome 新标签页转变为一个高度个性化、功能丰富的生产力仪表板。具备时间、天气、快速链接、笔记、待办事项和 AI 聊天功能！',
+                'rating': '★★★★★',
+                'add_to_chrome': '添加到 Chrome',
+                'install_note_important': '重要：',
+                'install_note_text': 'Chrome 浏览器通常不允许直接安装此类 .crx 文件。您可能需要前往 chrome://extensions/ 并开启“开发者模式”，然后将下载的文件拖拽到页面中来安装。',
+                'categories_title': '热门类别',
+                'cat_productivity': '生产力工具',
+                'cat_themes': '主题与外观',
+                'cat_education': '学习与教育',
+                'cat_games': '游戏',
+                'cat_communication': '通讯',
+                'cat_security': '安全与隐私',
+                'explore_more_title': '探索更多扩展程序',
+                'ext_1_title': '示例扩展程序 1',
+                'ext_1_desc': '这个扩展程序可以帮助您优化浏览体验，提供各种实用小工具。',
+                'ext_2_title': '高效工作伙伴',
+                'ext_2_desc': '专为高效人士设计，整合多项工作管理功能，提升您的生产力。',
+                'ext_3_title': '影音增强器',
+                'ext_3_desc': '提供丰富的影音播放控制，让您享受更流畅的在线观看体验。',
+                'view_details': '查看详情',
+                'final_cta_title': '准备好改变您的新标签页体验了吗？',
+                'download_ext_name': '下载 NewTab——Lifer_Lighdow',
+                'support_text': '如果您在安装过程中遇到任何问题，请参阅我们的',
+                'install_guide': '安装指南',
+                'or_contact_support': '或联系支持。',
+                'footer_text': '&copy; 2025 Lifer_Lighdow 扩展程序商店. All rights reserved.',
+                'language_selector_label': '语言：',
+            },
+            'en': {
+                'page_title': 'Lifer_Lighdow Extension Store',
+                'store_title': 'Lifer_Lighdow Extension Store',
+                'search_placeholder': 'Search extensions...',
+                'featured_ext_title': 'Featured: NewTab——Lifer_Lighdow',
+                'featured_ext_description': 'Transform your Chrome new tab into a highly personalized, feature-rich productivity dashboard. Includes time, weather, quick links, notes, todos, and AI chat features!',
+                'rating': '★★★★★',
+                'add_to_chrome': 'Add to Chrome',
+                'install_note_important': 'Important:',
+                'install_note_text': 'Chrome browser typically does not allow direct installation of .crx files. You may need to go to chrome://extensions/ and enable "Developer mode", then drag and drop the downloaded file onto the page to install.',
+                'categories_title': 'Popular Categories',
+                'cat_productivity': 'Productivity Tools',
+                'cat_themes': 'Themes & Appearance',
+                'cat_education': 'Learning & Education',
+                'cat_games': 'Games',
+                'cat_communication': 'Communication',
+                'cat_security': 'Security & Privacy',
+                'explore_more_title': 'Explore More Extensions',
+                'ext_1_title': 'Example Extension 1',
+                'ext_1_desc': 'This extension helps you optimize your browsing experience, providing various useful small tools.',
+                'ext_2_title': 'Efficient Work Partner',
+                'ext_2_desc': 'Designed for efficient individuals, integrating multiple work management features to boost your productivity.',
+                'ext_3_title': 'Video Enhancer',
+                'ext_3_desc': 'Provides rich video playback controls, allowing you to enjoy a smoother online viewing experience.',
+                'view_details': 'View Details',
+                'final_cta_title': 'Ready to transform your new tab experience?',
+                'download_ext_name': 'Download NewTab——Lifer_Lighdow',
+                'support_text': 'If you encounter any issues during installation, please refer to our',
+                'install_guide': 'Installation Guide',
+                'or_contact_support': 'or contact support.',
+                'footer_text': '&copy; 2025 Lifer_Lighdow Extension Store. All rights reserved.',
+                'language_selector_label': 'Language:',
+            },
+            'ja': {
+                'page_title': 'Lifer_Lighdow 拡張機能ストア',
+                'store_title': 'Lifer_Lighdow 拡張機能ストア',
+                'search_placeholder': '拡張機能を検索...',
+                'featured_ext_title': 'おすすめ：NewTab——Lifer_Lighdow',
+                'featured_ext_description': 'Chromeの新しいタブページを、高度にパーソナライズされた機能豊富な生産性ダッシュボードに変革します。時間、天気、クイックリンク、メモ、ToDo、AIチャット機能が含まれています！',
+                'rating': '★★★★★',
+                'add_to_chrome': 'Chromeに追加',
+                'install_note_important': '重要：',
+                'install_note_text': 'Chromeブラウザでは通常、.crxファイルの直接インストールは許可されていません。chrome://extensions/に移動して「デベロッパーモード」を有効にし、ダウンロードしたファイルをページにドラッグ＆ドロップしてインストールする必要がある場合があります。',
+                'categories_title': '人気カテゴリ',
+                'cat_productivity': '生産性ツール',
+                'cat_themes': 'テーマと外観',
+                'cat_education': '学習と教育',
+                'cat_games': 'ゲーム',
+                'cat_communication': '通信',
+                'cat_security': 'セキュリティとプライバシー',
+                'explore_more_title': 'その他の拡張機能を探す',
+                'ext_1_title': 'サンプル拡張機能 1',
+                'ext_1_desc': 'この拡張機能は、ブラウジング体験を最適化し、様々な便利なツールを提供します。',
+                'ext_2_title': '効率的なワークパートナー',
+                'ext_2_desc': '効率的なユーザーのために設計され、複数の作業管理機能を統合し、生産性を向上させます。',
+                'ext_3_title': 'ビデオエンハンサー',
+                'ext_3_desc': '豊富なビデオ再生コントロールを提供し、よりスムーズなオンライン視聴体験を楽しめます。',
+                'view_details': '詳細を見る',
+                'final_cta_title': '新しいタブの体験を変える準備はできていますか？',
+                'download_ext_name': 'NewTab——Lifer_Lighdowをダウンロード',
+                'support_text': 'インストール中に問題が発生した場合は、',
+                'install_guide': 'インストールガイド',
+                'or_contact_support': 'を参照するか、サポートにお問い合わせください。',
+                'footer_text': '&copy; 2025 Lifer_Lighdow 拡張機能ストア. All rights reserved.',
+                'language_selector_label': '語言：',
+            }
+        };
+
+        function setLanguage(lang) {
+            // Update page title
+            document.getElementById('page-title').textContent = translations[lang]['page_title'];
+
+            // Update elements with data-i18n-key
+            document.querySelectorAll('[data-i18n-key]').forEach(element => {
+                const key = element.getAttribute('data-i18n-key');
+                if (translations[lang][key]) {
+                    // Special handling for placeholder
+                    if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
+                        element.setAttribute('placeholder', translations[lang][key]);
+                    } else {
+                        // For the support text, we need to handle child spans
+                        if (key === 'support_text_combined') {
+                             // This key is a combined one for the p tag itself, its children will be translated by their own keys.
+                             // No direct textContent change on this one, as its children handle it.
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                }
+            });
+
+            // Set the lang attribute for the HTML tag
+            document.documentElement.lang = lang;
+
+            // Save selected language to localStorage
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSelector = document.getElementById('language-selector');
+            const savedLang = localStorage.getItem('selectedLanguage') || 'zh-TW'; // Default to Traditional Chinese
+
+            // Set the dropdown to the saved language
+            if (languageSelector) {
+                languageSelector.value = savedLang;
+                languageSelector.addEventListener('change', (event) => {
+                    setLanguage(event.target.value);
+                });
+            }
+
+            // Apply translations
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
